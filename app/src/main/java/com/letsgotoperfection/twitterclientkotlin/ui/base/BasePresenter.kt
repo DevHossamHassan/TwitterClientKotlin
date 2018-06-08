@@ -1,4 +1,4 @@
-package com.letsgotoperfection.whatshotonsoundcloud.ui.base
+package com.letsgotoperfection.twitterclientkotlin.ui.base
 
 import java.lang.ref.WeakReference
 

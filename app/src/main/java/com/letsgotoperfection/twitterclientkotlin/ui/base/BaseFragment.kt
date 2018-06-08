@@ -1,4 +1,4 @@
-package com.letsgotoperfection.whatshotonsoundcloud.ui.base
+package com.letsgotoperfection.twitterclientkotlin.ui.base
 
 import android.app.Fragment
 import android.os.Bundle
