@@ -104,7 +104,7 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
                 .subscribeOn(Schedulers.computation())
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .filter { it -> it.isNotEmpty() }
-                .map { it.replace("[\\s]+".toRegex(), "%20") }
+                .map { it.replace("[\\s]+".toRegex(), "") }
                 .distinctUntilChanged()
                 .observeOn(Schedulers.io())
                 .subscribe({
