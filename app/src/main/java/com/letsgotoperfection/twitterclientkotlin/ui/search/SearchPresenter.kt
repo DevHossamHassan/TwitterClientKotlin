@@ -1,8 +1,12 @@
 package com.letsgotoperfection.twitterclientkotlin.ui.search
 
 import RetrofitProvider
+import android.annotation.SuppressLint
+import android.util.Log
 import com.letsgotoperfection.twitterclientkotlin.models.Statuse
 import com.letsgotoperfection.twitterclientkotlin.ui.base.BasePresenter
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 
 /**
@@ -10,30 +14,31 @@ import com.letsgotoperfection.twitterclientkotlin.ui.base.BasePresenter
  */
 class SearchPresenter(private val searchView: SearchContract.View) : BasePresenter<SearchContract.View>(searchView), SearchContract.Presenter {
 
-    override fun getExistedTracks(): List<Statuse> {
+    override fun getExistedTweets(): List<Statuse> {
         return SearchModel.tweets
     }
 
-    override fun getTracksListSize(): Int {
+    override fun getTweetsCount(): Int {
         return SearchModel.tweets.size
     }
 
-    override fun onLoadMore(query: String) {
+    override fun onQueryChanged(query: String) {
         loadTracks(query)
     }
 
+    @SuppressLint("CheckResult")
     private fun loadTracks(query: String) {
-//         searchView.showProgressBar()
-
+        searchView.showSwipeToRefreshProgressBar()
         RetrofitProvider.loadTweets(query)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     SearchModel.tweets = it.statuses
                     searchView.updateDate()
-                    searchView.hideProgressBar()
                     searchView.hideSwipeToRefreshProgressBar()
                 }, { e ->
-                    searchView.hideProgressBar()
                     searchView.hideSwipeToRefreshProgressBar()
+                    Log.e("SearchPresenter", "Exception Occurred while searching = " + e.message)
                 })
     }
 

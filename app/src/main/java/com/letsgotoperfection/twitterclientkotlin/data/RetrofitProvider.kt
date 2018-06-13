@@ -1,8 +1,7 @@
+
 import com.letsgotoperfection.twitterclientkotlin.BuildConfig
 import com.letsgotoperfection.twitterclientkotlin.data.Oauth1SigningInterceptor
 import com.letsgotoperfection.twitterclientkotlin.data.TwitterApi
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -54,6 +53,4 @@ object RetrofitProvider {
 
     fun loadTweets(query: String) =
             twitterApi.getTweets(query, 20)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())!!
 }

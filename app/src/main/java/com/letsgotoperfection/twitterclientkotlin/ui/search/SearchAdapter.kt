@@ -30,11 +30,11 @@ class SearchAdapter(private val presenter: SearchPresenter) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: HotTracksListHolder, position: Int) {
-        holder.bind(presenter.getExistedTracks()[position])
+        holder.bind(presenter.getExistedTweets()[position])
     }
 
     override fun getItemCount(): Int {
-        return presenter.getTracksListSize()
+        return presenter.getTweetsCount()
     }
 
     class HotTracksListHolder(itemView: View, private var onRecyclerViewClickListener: OnRecyclerViewClickListener)

@@ -13,6 +13,7 @@ import com.letsgotoperfection.twitterclientkotlin.R
 import com.letsgotoperfection.twitterclientkotlin.listeners.OnRecyclerViewScrollToTheEnd
 import com.letsgotoperfection.twitterclientkotlin.ui.base.BaseFragment
 import com.letsgotoperfection.twitterclientkotlin.utils.*
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.search_fragment.*
 import java.util.concurrent.TimeUnit
@@ -55,7 +56,7 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
                         super.onScrolled(recyclerView, dx, dy)
                         if (layoutManager.findLastCompletelyVisibleItemPosition()
                                 == adapter.itemCount - 1) {
-                            presenter.onLoadMore(editTextSearch.text.toString())
+                            presenter.onQueryChanged(editTextSearch.text.toString())
                         }
                     }
                 })
@@ -63,19 +64,11 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
     }
 
     private fun setSwipeRefreshListeners() {
-        swipeRefreshLayout.setOnRefreshListener({ presenter.onLoadMore(editTextSearch.text.toString()) })
+        swipeRefreshLayout.setOnRefreshListener({ presenter.onQueryChanged(editTextSearch.text.toString()) })
     }
 
     override fun showToast(msg: String) {
         Toast.makeText(activity.applicationContext, msg, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun showProgressBar() {
-        progressBar.show()
-    }
-
-    override fun hideProgressBar() {
-        progressBar.hide()
     }
 
     override fun updateDate() {
@@ -83,7 +76,7 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
     }
 
     override fun updateInsertedData(itemCount: Int) {
-        adapter.notifyItemRangeInserted(presenter.getTracksListSize() - itemCount, itemCount)
+        adapter.notifyItemRangeInserted(presenter.getTweetsCount() - itemCount, itemCount)
     }
 
     override fun hideSwipeToRefreshProgressBar() {
@@ -106,9 +99,9 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
                 .filter { it -> it.isNotEmpty() }
                 .map { it.replace("[\\s]+".toRegex(), "") }
                 .distinctUntilChanged()
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    presenter.onLoadMore(it)
+                    presenter.onQueryChanged(it)
                 }
                         , {
                     Log.d("SearchFragment", "search error")
