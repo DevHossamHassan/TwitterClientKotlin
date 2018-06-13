@@ -10,5 +10,11 @@ import retrofit2.http.Query
  */
 interface TwitterApi {
     @GET("1.1/search/tweets.json")
-    fun getTweets(@Query("q") q: String, @Query("count") count: Int): Flowable<TweetX>
+    fun getTweets(@Query("q") q: String,
+                  @Query("count") count: Int): Flowable<TweetX>
+
+    @GET("1.1/search/tweets.json")
+    fun getTweets(@Query("q") q: String,
+                  @Query("count") count: Int,
+                  @Query("max_id") maxId: String): Flowable<TweetX>
 }

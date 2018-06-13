@@ -23,17 +23,25 @@ class SearchPresenter(private val searchView: SearchContract.View) : BasePresent
     }
 
     override fun onQueryChanged(query: String) {
-        loadTracks(query)
+        getTweets(query)
+    }
+
+    override fun onLoadMore(query: String) {
+        getTweets(query, SearchModel.max_id_str)
     }
 
     @SuppressLint("CheckResult")
-    private fun loadTracks(query: String) {
+    private fun getTweets(query: String, maxId: String = "") {
         searchView.showSwipeToRefreshProgressBar()
-        RetrofitProvider.loadTweets(query)
+        RetrofitProvider.loadTweets(query, maxId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    SearchModel.tweets = it.statuses
+                    if (maxId.isEmpty()) {
+                        SearchModel.tweets = it.statuses
+                    } else {
+                        SearchModel.tweets += it.statuses
+                    }
                     searchView.updateDate()
                     searchView.hideSwipeToRefreshProgressBar()
                 }, { e ->

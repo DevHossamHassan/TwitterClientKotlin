@@ -56,7 +56,7 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
                         super.onScrolled(recyclerView, dx, dy)
                         if (layoutManager.findLastCompletelyVisibleItemPosition()
                                 == adapter.itemCount - 1) {
-                            presenter.onQueryChanged(editTextSearch.text.toString())
+                            presenter.onLoadMore(editTextSearch.text.toString())
                         }
                     }
                 })

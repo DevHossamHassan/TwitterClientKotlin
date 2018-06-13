@@ -22,6 +22,7 @@ class SearchContract : BaseContract {
         fun getExistedTweets(): List<Statuse>
         fun getTweetsCount(): Int
         fun onQueryChanged(query: String)
+        fun onLoadMore(query: String)
         fun destroy()
     }
 }

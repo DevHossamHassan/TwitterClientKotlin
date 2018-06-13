@@ -51,6 +51,11 @@ object RetrofitProvider {
                 .build()
     }
 
-    fun loadTweets(query: String) =
+    fun loadTweets(query: String, maxId: String) =
+            if (maxId.isEmpty()) {
             twitterApi.getTweets(query, 20)
+            } else {
+                twitterApi.getTweets(query, 20, maxId)
+            }
+
 }

@@ -8,8 +8,8 @@ import com.letsgotoperfection.twitterclientkotlin.models.Statuse
  */
 object SearchModel {
     var tweets: List<Statuse> = listOf()
-    var max_id_str: String? = ""
-        get() = (SearchModel.tweets.minBy { it.id })?.id_str
+    var max_id_str: String = ""
+        get() = (SearchModel.tweets.minBy { it.id })?.id_str + ""
 
     fun destroy() {
     }
