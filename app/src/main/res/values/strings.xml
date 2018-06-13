@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Twitter Client Kotlin</string>
+    <string name="twitterHandel">@%s</string>
+    <string name="search">search by #hashtag, tweet content …</string>
 </resources>

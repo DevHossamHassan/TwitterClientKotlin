@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.letsgotoperfection.twitterclientkotlin.ui.custom.CircledImageView
+        android:id="@+id/twitter_client_kotlin_author_avatar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@tools:sample/avatars"/>
+
+    <com.letsgotoperfection.twitterclientkotlin.ui.custom.CircledImageView
+        android:id="@+id/twitter_client_kotlin_twitter_logo"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twitter_ic_logo"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/twitter_ic_logo"/>
+
+    <TextView
+        android:id="@+id/twitter_client_kotlin_author_full_name"
+        style="@style/twitter_client_kotlinFullName"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@id/twitter_client_kotlin_author_avatar"
+        android:drawableEnd="@drawable/ic_verified"
+        app:layout_constraintStart_toEndOf="@+id/twitter_client_kotlin_author_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:drawableEnd="@drawable/ic_verified"
+        tools:drawableRight="@drawable/ic_verified"
+        tools:text="Jake wharton"/>
+
+    <TextView
+        android:id="@+id/twitter_client_kotlin_author_twitter_handel"
+        style="@style/twitter_client_kotlinFullNameBase"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@id/twitter_client_kotlin_author_avatar"
+        android:text="@string/twitterHandel"
+        android:textColor="@color/twitter_client_kotlin_action_color"
+        app:layout_constraintStart_toEndOf="@+id/twitter_client_kotlin_author_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/twitter_client_kotlin_author_full_name"
+        tools:text="/@Jakewharton"/>
+
+    <TextView
+        android:id="@+id/twitter_client_kotlin_tweet_text"
+        style="@style/twitter_client_kotlinText"
+        android:layout_width="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@id/twitter_client_kotlin_author_avatar"
+        android:maxLines="6"
+        android:singleLine="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twitter_client_kotlin_author_avatar"
+        app:layout_constraintVertical_bias="0.004"
+        tools:text="@tools:sample/lorem/random"/>
+
+    <ImageView
+        android:id="@+id/imgTweet"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twitter_client_kotlin_tweet_text"
+        app:layout_constraintVertical_bias="0.0"
+        tools:background="@tools:sample/backgrounds/scenic"/>
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/twitter_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTweet"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <View
+        android:id="@+id/bottom_separator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/twitter_client_kotlin_container_bottom_separator"
+        android:layout_below="@id/action_bar_layout"
+        android:layout_marginEnd="8dp"
+        android:background="@color/twitter_client_kotlin_light_primary_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_bar_layout"/>
+
+</android.support.constraint.ConstraintLayout>

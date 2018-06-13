@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -6,6 +6,158 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="twitter_client_kotlinRetweetedBy"
+           tools:ignore="NewApi">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/twitter_client_kotlin_retweeted_by_margin_top
+        </item>
+        <item name="android:layout_marginLeft">
+            @dimen/twitter_client_kotlin_retweeted_by_margin_left
+        </item>
+        <item name="android:layout_marginStart">
+            @dimen/twitter_client_kotlin_retweeted_by_margin_left
+        </item>
+        <item name="android:layout_marginBottom">
+            @dimen/twitter_client_kotlin_retweeted_by_margin_bottom
+        </item>
+        <item name="android:drawablePadding">
+            @dimen/twitter_client_kotlin_retweeted_by_drawable_padding
+        </item>
+        <item name="android:textSize">@dimen/twitter_client_kotlin_text_size_medium</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:focusable">false</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="twitter_client_kotlin_AttributionText"
+           tools:ignore="NewApi">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/twitter_client_kotlin_text_size_medium</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="twitter_client_kotlinFullNameBase" parent="twitter_client_kotlin_AttributionText" tools:ignore="NewApi">
+        <item name="android:layout_marginTop">@dimen/twitter_client_kotlin_full_name_margin_top
+        </item>
+        <item name="android:layout_marginRight">
+            @dimen/twitter_client_kotlin_full_name_margin_right
+        </item>
+        <item name="android:layout_marginEnd">@dimen/twitter_client_kotlin_full_name_margin_right
+        </item>
+        <item name="android:textSize">@dimen/twitter_client_kotlin_text_size_large</item>
+        <item name="android:textColor">@color/twitter_client_kotlin_light_primary_text_color</item>
+        <item name="android:drawablePadding">
+            @dimen/twitter_client_kotlin_full_name_drawable_padding
+        </item>
+        <item name="android:focusable">false</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="twitter_client_kotlinFullName" parent="twitter_client_kotlinFullNameBase">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--ScreenName should ellipsize, name and timestamp should not ellipsize-->
+    <style name="twitter_client_kotlinScreenName" parent="twitter_client_kotlin_AttributionText"
+           tools:ignore="NewApi">
+        <item name="android:layout_marginTop">@dimen/twitter_client_kotlin_screen_name_margin_top
+        </item>
+        <item name="android:layout_marginBottom">
+            @dimen/twitter_client_kotlin_screen_name_margin_bottom
+        </item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:focusable">false</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="twitter_client_kotlinTimestamp" parent="twitter_client_kotlin_AttributionText"
+           tools:ignore="NewApi">
+        <item name="android:layout_marginTop">@dimen/twitter_client_kotlin_timestamp_margin_top
+        </item>
+        <item name="android:paddingLeft">@dimen/twitter_client_kotlin_timestamp_padding_left</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:focusable">false</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="twitter_client_kotlinText"
+           tools:ignore="NewApi">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/twitter_client_kotlin_text_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/twitter_client_kotlin_text_margin_left</item>
+        <item name="android:layout_marginStart">@dimen/twitter_client_kotlin_text_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/twitter_client_kotlin_text_margin_right
+        </item>
+        <item name="android:layout_marginEnd">@dimen/twitter_client_kotlin_text_margin_right</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/twitter_client_kotlin_text_size_large</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="android:textColor">@color/twitter_client_kotlin_light_primary_text_color</item>
+        <item name="android:textColorLink">@color/twitter_client_kotlin_action_color</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:linksClickable">true</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="twitter_client_kotlinActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">
+            @dimen/twitter_client_kotlin_action_button_margin_top
+        </item>
+    </style>
+
+    <style name="twitter_client_kotlinActionButton.Heart">
+        <item name="android:layout_width">@dimen/twitter_client_kotlin_action_heart_size</item>
+        <item name="android:layout_height">@dimen/twitter_client_kotlin_action_heart_size</item>
+    </style>
+
+    <style name="twitter_client_kotlinActionButton.Share">
+        <item name="android:background">@null</item>
+        <item name="android:padding">@dimen/twitter_client_kotlin_action_share_padding</item>
+    </style>
+
+    <style name="twitter_client_kotlinActionButtonBar" tools:ignore="NewApi">
+        <item name="android:layout_marginLeft">@dimen/twitter_client_kotlin_action_bar_offset_left
+        </item>
+        <item name="android:layout_marginStart">
+            @dimen/twitter_client_kotlin_action_bar_offset_left
+        </item>
+        <item name="android:layout_marginBottom">
+            @dimen/twitter_client_kotlin_action_bar_offset_bottom
+        </item>
+        <item name="android:layout_marginTop">
+            @dimen/twitter_client_kotlin_action_button_margin_top
+        </item>
+    </style>
+
+    <style name="twitter_client_kotlinActionButtonBar_Text" tools:ignore="NewApi">
+        <item name="android:layout_marginTop">
+            @dimen/twitter_client_kotlin_action_bar_text_offset_top
+        </item>
+        <item name="android:layout_marginEnd">
+            @dimen/twitter_client_kotlin_action_bar_text_offset_right
+        </item>
+        <item name="android:layout_marginStart">
+            @dimen/twitter_client_kotlin_action_bar_text_offset_left
+        </item>
+        <item name="android:layout_marginBottom">
+            @dimen/twitter_client_kotlin_action_bar_text_offset_bottom
+        </item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/twitter_client_kotlin_text_size_small</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:lineSpacingExtra">1dp</item>
     </style>
 
 </resources>

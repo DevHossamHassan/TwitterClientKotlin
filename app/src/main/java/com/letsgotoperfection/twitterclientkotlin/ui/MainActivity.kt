@@ -2,6 +2,7 @@ package com.letsgotoperfection.twitterclientkotlin.ui
 
 import com.letsgotoperfection.twitterclientkotlin.R
 import com.letsgotoperfection.twitterclientkotlin.ui.base.BaseActivity
+import com.letsgotoperfection.twitterclientkotlin.ui.search.SearchFragment
 
 class MainActivity : BaseActivity() {
 
@@ -14,6 +15,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun init() {
-        //TODO navigate to the host fragment here
+        NavigationManager.attachAsRoot(this, SearchFragment())
     }
 }

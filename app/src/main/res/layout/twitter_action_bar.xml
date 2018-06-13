@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/action_bar_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/imgButtonReply"
+            style="@style/twitter_client_kotlinActionButtonBar"
+            android:layout_width="@dimen/twitter_client_kotlin_action_heart_size"
+            android:layout_height="@dimen/twitter_client_kotlin_action_heart_size"
+            android:background="@drawable/twitter_ic_selector_transparent"
+            app:srcCompat="@drawable/twitter_ic_reply_24dp"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteX="11dp"/>
+
+        <TextView
+            android:id="@+id/txtReplyCount"
+            style="@style/twitter_client_kotlinActionButtonBar_Text"
+            android:layout_width="@dimen/twitter_client_kotlin_action_heart_size"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgButtonReply"
+            android:layout_alignBottom="@id/imgButtonReply"
+            android:layout_toEndOf="@id/imgButtonReply"
+            tools:text="17"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/imgButtonRetweet"
+            style="@style/twitter_client_kotlinActionButtonBar"
+            android:layout_width="@dimen/twitter_client_kotlin_action_heart_size"
+            android:layout_height="@dimen/twitter_client_kotlin_action_heart_size"
+            android:background="@drawable/twitter_ic_selector_transparent"
+            app:srcCompat="@drawable/twitter_ic_retweet"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="0dp"/>
+
+        <TextView
+            android:id="@+id/txtRetweetCount"
+            style="@style/twitter_client_kotlinActionButtonBar_Text"
+            android:layout_width="@dimen/twitter_client_kotlin_action_heart_size"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgButtonRetweet"
+            android:layout_alignBottom="@id/imgButtonRetweet"
+            android:layout_toEndOf="@id/imgButtonRetweet"
+            tools:text="114"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/imgButtonFavorite"
+            style="@style/twitter_client_kotlinActionButtonBar"
+            android:layout_width="@dimen/twitter_client_kotlin_action_heart_size"
+            android:layout_height="@dimen/twitter_client_kotlin_action_heart_size"
+            android:background="@drawable/twitter_ic_selector_transparent"
+            app:srcCompat="@drawable/twitter_ic_favorite_24dp"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="0dp"/>
+
+        <TextView
+            android:id="@+id/txtFavoriteCount"
+            style="@style/twitter_client_kotlinActionButtonBar_Text"
+            android:layout_width="@dimen/twitter_client_kotlin_action_heart_size"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgButtonFavorite"
+            android:layout_alignBottom="@id/imgButtonFavorite"
+            android:layout_toEndOf="@id/imgButtonFavorite"
+            tools:text="312"/>
+    </RelativeLayout>
+
+</LinearLayout>
