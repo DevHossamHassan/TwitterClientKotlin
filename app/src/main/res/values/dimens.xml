@@ -4,6 +4,7 @@
     <!--core-->
     <dimen name="twitter_client_kotlin_icon_padding_4">4dp</dimen>
     <dimen name="twitter_client_kotlin_icon_padding_6">6dp</dimen>
+    <dimen name="twitter_client_kotlin_icon_padding_8">6dp</dimen>
     <dimen name="twitter_client_kotlin_container_bottom_separator">1dp</dimen>
 
 

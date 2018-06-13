@@ -12,7 +12,8 @@ import io.reactivex.schedulers.Schedulers
 /**
  * @author hossam.
  */
-class SearchPresenter(private val searchView: SearchContract.View) : BasePresenter<SearchContract.View>(searchView), SearchContract.Presenter {
+class SearchPresenter(private val searchView: SearchContract.View)
+    : BasePresenter<SearchContract.View>(searchView), SearchContract.Presenter {
 
     override fun getExistedTweets(): List<Statuse> {
         return SearchModel.tweets
@@ -41,6 +42,7 @@ class SearchPresenter(private val searchView: SearchContract.View) : BasePresent
                         SearchModel.tweets = it.statuses
                     } else {
                         SearchModel.tweets += it.statuses
+                        SearchModel.tweets.distinctBy({ it.id_str })
                     }
                     searchView.updateDate()
                     searchView.hideSwipeToRefreshProgressBar()

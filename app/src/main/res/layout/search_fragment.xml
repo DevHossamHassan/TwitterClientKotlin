@@ -41,16 +41,19 @@
             android:privateImeOptions="nm"
             android:selectAllOnFocus="true"
             android:textColor="@color/twitter_client_kotlin_cta_text_color"
+            android:textCursorDrawable="@drawable/shape_curcor_color"
             android:textSize="@dimen/twitter_client_kotlin_text_size_medium"
             />
 
         <ImageView
             android:id="@+id/clear_query"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_gravity="center_vertical"
-            android:paddingStart="@dimen/twitter_client_kotlin_icon_padding_6"
-            android:paddingEnd="@dimen/twitter_client_kotlin_icon_padding_6"
+            android:layout_marginEnd="@dimen/twitter_client_kotlin_icon_padding_8"
+            android:padding="@dimen/twitter_client_kotlin_icon_padding_6"
+            android:paddingStart="@dimen/twitter_client_kotlin_icon_padding_8"
+            android:paddingEnd="@dimen/twitter_client_kotlin_icon_padding_8"
             android:visibility="invisible"
             app:srcCompat="@drawable/ic_close_white_24dp"
             tools:visibility="visible"

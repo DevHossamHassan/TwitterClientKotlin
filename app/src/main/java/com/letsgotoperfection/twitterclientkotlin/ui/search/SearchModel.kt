@@ -12,5 +12,6 @@ object SearchModel {
         get() = (SearchModel.tweets.minBy { it.id })?.id_str + ""
 
     fun destroy() {
+        tweets = emptyList()
     }
 }

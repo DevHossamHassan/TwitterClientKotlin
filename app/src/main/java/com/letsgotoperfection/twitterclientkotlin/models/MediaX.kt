@@ -1,5 +1,7 @@
 package com.letsgotoperfection.twitterclientkotlin.models
 
+import java.io.Serializable
+
 data class MediaX(
         val id: Long,
         val id_str: String,
@@ -13,4 +15,4 @@ data class MediaX(
         val sizes: Sizes,
         val video_info: VideoInfo,
         val additional_media_info: AdditionalMediaInfo
-)
+) : Serializable

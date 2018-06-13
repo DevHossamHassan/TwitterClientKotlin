@@ -3,8 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tweetListItem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
 
     <com.letsgotoperfection.twitterclientkotlin.ui.custom.CircledImageView
         android:id="@+id/twitter_client_kotlin_author_avatar"
@@ -64,7 +67,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:layout_toEndOf="@id/twitter_client_kotlin_author_avatar"
+        android:clickable="false"
         android:maxLines="6"
+        android:focusable="false"
         android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +87,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:clickable="false"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +117,7 @@
         android:layout_height="@dimen/twitter_client_kotlin_container_bottom_separator"
         android:layout_below="@id/action_bar_layout"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:background="@color/twitter_client_kotlin_light_primary_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

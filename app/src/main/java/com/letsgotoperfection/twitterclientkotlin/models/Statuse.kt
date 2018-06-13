@@ -1,5 +1,7 @@
 package com.letsgotoperfection.twitterclientkotlin.models
 
+import java.io.Serializable
+
 data class Statuse(
         val created_at: String,
         val id: Long,
@@ -27,4 +29,4 @@ data class Statuse(
         val lang: String,
         val extended_entities: ExtendedEntities,
         val possibly_sensitive: Boolean
-)
+) : Serializable

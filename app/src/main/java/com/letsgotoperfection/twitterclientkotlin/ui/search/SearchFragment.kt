@@ -11,7 +11,10 @@ import android.view.View
 import android.widget.Toast
 import com.letsgotoperfection.twitterclientkotlin.R
 import com.letsgotoperfection.twitterclientkotlin.listeners.OnRecyclerViewScrollToTheEnd
+import com.letsgotoperfection.twitterclientkotlin.models.Statuse
+import com.letsgotoperfection.twitterclientkotlin.ui.NavigationManager
 import com.letsgotoperfection.twitterclientkotlin.ui.base.BaseFragment
+import com.letsgotoperfection.twitterclientkotlin.ui.details.DetailsFragment
 import com.letsgotoperfection.twitterclientkotlin.utils.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -23,7 +26,6 @@ import java.util.concurrent.TimeUnit
  * @author hossam.
  */
 class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.View {
-
     override val fragmentLayoutResourceId = R.layout.search_fragment
     private lateinit var adapter: SearchAdapter
     private lateinit var layoutManager: LinearLayoutManager
@@ -36,7 +38,7 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
         super.onViewCreated(view, savedInstanceState)
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-        adapter = SearchAdapter(presenter as SearchPresenter)
+        adapter = SearchAdapter(presenter as SearchPresenter, { itemClick: Statuse -> onItemClick(itemClick) })
         recyclerView.setHasFixedSize(true)
         recyclerView.setItemViewCacheSize(20)
         recyclerView.isDrawingCacheEnabled = true
@@ -80,11 +82,11 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
     }
 
     override fun hideSwipeToRefreshProgressBar() {
-        swipeRefreshLayout.hideLoadingView()
+        swipeRefreshLayout?.hideLoadingView()
     }
 
     override fun showSwipeToRefreshProgressBar() {
-        swipeRefreshLayout.showLoadingView()
+        swipeRefreshLayout?.showLoadingView()
     }
 
     @SuppressLint("CheckResult")
@@ -111,5 +113,14 @@ class SearchFragment : BaseFragment<SearchContract.Presenter>(), SearchContract.
             if (it.isNotEmpty()) clear_query.show() else clear_query.hide()
         }
 
+    }
+
+    private fun onItemClick(tweet: Statuse) {
+        navigateToDetailsFragment(tweet)
+    }
+
+    override fun navigateToDetailsFragment(tweet: Statuse) {
+        NavigationManager.attach(this.activity, DetailsFragment.newInstance(tweet),
+                false, "DetailsFragment")
     }
 }

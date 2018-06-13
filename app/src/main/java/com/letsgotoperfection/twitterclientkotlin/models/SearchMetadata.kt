@@ -1,5 +1,7 @@
 package com.letsgotoperfection.twitterclientkotlin.models
 
+import java.io.Serializable
+
 data class SearchMetadata(
         val completed_in: Double,
         val max_id_str: String,
@@ -8,4 +10,4 @@ data class SearchMetadata(
         val count: Int,
         val since_id: Int,
         val since_id_str: String
-)
+) : Serializable

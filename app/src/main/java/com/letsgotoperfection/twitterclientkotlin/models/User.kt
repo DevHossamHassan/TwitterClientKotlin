@@ -1,5 +1,7 @@
 package com.letsgotoperfection.twitterclientkotlin.models
 
+import java.io.Serializable
+
 data class User(
         val id_str: String,
         val name: String,
@@ -42,4 +44,4 @@ data class User(
         val follow_request_sent: Boolean,
         val notifications: Boolean,
         val translator_type: String
-)
+) : Serializable

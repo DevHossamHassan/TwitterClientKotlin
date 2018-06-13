@@ -51,7 +51,15 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
 
+    implementation 'com.android.support:support-v4:27.1.1'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:$runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
+}
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.hasTask(":licenseDebugReport")) {
+        androidExtensions {
+            experimental = false
+        }
+    }
 }

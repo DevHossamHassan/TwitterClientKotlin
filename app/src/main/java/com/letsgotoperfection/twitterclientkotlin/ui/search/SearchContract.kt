@@ -16,6 +16,7 @@ class SearchContract : BaseContract {
         fun updateInsertedData(itemCount: Int)
         fun hideSwipeToRefreshProgressBar()
         fun showSwipeToRefreshProgressBar()
+        fun navigateToDetailsFragment(tweet: Statuse)
     }
 
     interface Presenter : BaseContract.Presenter {
