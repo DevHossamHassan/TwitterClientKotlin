@@ -56,10 +56,3 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
 }
-gradle.taskGraph.whenReady { taskGraph ->
-    if (taskGraph.hasTask(":licenseDebugReport")) {
-        androidExtensions {
-            experimental = false
-        }
-    }
-}
